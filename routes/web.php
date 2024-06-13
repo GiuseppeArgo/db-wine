@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\WineController;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\Routing\Route as RoutingRoute;
 
@@ -18,6 +19,4 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/wines', function() {
-    return view('wines');
-});
+Route::get('/wines', [WineController::class, 'index']);
