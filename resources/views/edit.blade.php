@@ -10,7 +10,42 @@
 
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Vineria</span>
-                <input value="{{ old($wine->winery) }}"id="winery" name="winery" type="text" class="form-control"
+                <input value="{{ $wine->winery }}"id="winery" name="winery" type="text" class="form-control"
+                    aria-describedby="basic-addon1">
+
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Vino</span>
+                <input value="{{ $wine->wine }}"id="wine" name="wine" type="text" class="form-control"
+                    aria-describedby="basic-addon1">
+
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Valutazione</span>
+                <input value="{{ $wine->average }}"id="average " name="average " type="number" class="form-control"
+                    aria-describedby="basic-addon1">
+
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Numero recensioni</span>
+                <input value="{{ $wine->reviews }}"id="reviews " name="reviews " type="number" class="form-control"
+                    aria-describedby="basic-addon1">
+
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Provenienza</span>
+                <input value="{{ $wine->location }}"id="location " name="location " type="text" class="form-control"
+                    aria-describedby="basic-addon1">
+
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Url immagine</span>
+                <input value="{{ $wine->image }}"id="image " name="image " type="text" class="form-control"
                     aria-describedby="basic-addon1">
 
             </div>
