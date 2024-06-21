@@ -11,7 +11,7 @@
             <p class="mb-5">Locazione: {{ $wine->location }}</p>
             <p class="mb-5">Voto medio: {{ $wine->average }}</p>
             <p class="mb-5">Recensioni: {{ $wine->reviews }}</p>
-            <a href="{{ route('wines.index') }}" class="btn btn-primary">Torna alla lista</a>
+            <a href="{{ route('wines.index') }}" class="btn btn-secondary">Torna alla lista</a>
         </div>
     </div>
 @endsection

@@ -28,7 +28,6 @@ class WinesTableSeeder extends Seeder
             $newWine = new Wine();
             $newWine->winery = $wine['winery'];
             $newWine->wine = $wine['wine'];
-            $newWine->type = 'red'; // da cancellare
             $newWine->average = floatval($wine['rating']['average']);
             $newWine->reviews = intval(explode(' ', $wine['rating']['reviews'])[0]);
             $newWine->location = $wine['location'];
