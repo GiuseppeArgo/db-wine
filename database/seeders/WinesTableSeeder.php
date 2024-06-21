@@ -19,6 +19,11 @@ class WinesTableSeeder extends Seeder
 
         $data = $response->json();
         
+        $this->seeder($data);
+    }
+
+    public function seeder($data) {
+
         foreach ($data as $wine) {
             $newWine = new Wine();
             $newWine->winery = $wine['winery'];
