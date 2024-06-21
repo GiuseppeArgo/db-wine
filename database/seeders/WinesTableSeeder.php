@@ -15,14 +15,15 @@ class WinesTableSeeder extends Seeder
     public function run(): void
     {
 
-        $response = Http::get('https://api.sampleapis.com/wines/reds');
+        $response = Http::get('http://api.sampleapis.com/wines/reds');
 
         $data = $response->json();
-        
+
         $this->seeder($data);
     }
 
-    public function seeder($data) {
+    public function seeder($data)
+    {
 
         foreach ($data as $wine) {
             $newWine = new Wine();
