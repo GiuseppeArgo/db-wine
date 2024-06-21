@@ -62,6 +62,9 @@ class WineController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $wine = Wine::findOrFail($id);
+        $wine->delete();
+        
+        return redirect()->route("wines.index")->with("messageDelete", "Il vino ". $wine->title . " è stato eliminato con successo!");
     }
 }

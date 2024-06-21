@@ -10,3 +10,13 @@ img {
     max-width: 100% !important;
     height: 500px !important;
 }
+
+.delete-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.delete-msg {
+    list-style-type: none;
+}
