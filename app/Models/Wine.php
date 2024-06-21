@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Wine extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'winery',
+        'wines',
+        'type',
+        'average',
+        'reviews',
+        'location',
+        'image'
+    ];
 }
