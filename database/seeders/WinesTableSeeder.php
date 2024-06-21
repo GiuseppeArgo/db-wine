@@ -14,26 +14,46 @@ class WinesTableSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->WinesType('http://api.sampleapis.com/wines/reds', 'red');
 
-        $response = Http::get('http://api.sampleapis.com/wines/reds');
+        $this->WinesType('http://api.sampleapis.com/wines/whites', 'white');
 
-        $data = $response->json();
+        $this->WinesType('http://api.sampleapis.com/wines/sparkling', 'sparkling');
 
-        $this->seeder($data);
+        $this->WinesType('http://api.sampleapis.com/wines/rose', 'rose');
+        
+        $this->WinesType('http://api.sampleapis.com/wines/dessert', 'dessert');
+        
+        $this->WinesType('http://api.sampleapis.com/wines/port', 'port');
+        
     }
 
-    public function seeder($data)
+    public function WinesType(string $urlApi, string $type)
     {
+        $response = Http::withUrlParameters([
+            'verify' => false
+        ])->get($urlApi);
 
-        foreach ($data as $wine) {
+        $wines = $response->json();
+        foreach ($wines as $wine) {
             $newWine = new Wine();
-            $newWine->winery = $wine['winery'];
-            $newWine->wine = $wine['wine'];
-            $newWine->average = floatval($wine['rating']['average']);
-            $newWine->reviews = intval(explode(' ', $wine['rating']['reviews'])[0]);
-            $newWine->location = $wine['location'];
-            $newWine->image = $wine['image'];
-            $newWine->save();
+            $newwine = $this->seeder($newWine, $wine);
+            $newWine->type = $type;
+            // dd($newWine);
+            $newwine->save();
         }
     }
+    
+    public function seeder(Wine $newWine, $wine)
+    {
+        $newWine->winery = $wine['winery'];
+        $newWine->wine = $wine['wine'];
+        $newWine->average = floatval($wine['rating']['average']);
+        $newWine->reviews = intval(explode(' ', $wine['rating']['reviews'])[0]);
+        $newWine->location = $wine['location'];
+        $newWine->image = $wine['image'];
+        return $newWine;
+    }
+
+ 
 }
