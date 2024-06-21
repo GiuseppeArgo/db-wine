@@ -61,7 +61,7 @@ class WineController extends Controller
     {
         $data = $request->all();
         $wine->update($data);
-        return redirect()->route('index');
+        return redirect()->route('wines.show', compact('wine'));
     }
 
     /**
@@ -71,7 +71,7 @@ class WineController extends Controller
     {
         $wine = Wine::findOrFail($id);
         $wine->delete();
-        
-        return redirect()->route("wines.index")->with("messageDelete", "Il vino ". $wine->title . " è stato eliminato con successo!");
+
+        return redirect()->route("wines.index")->with("messageDelete", "Il vino " . $wine->title . " è stato eliminato con successo!");
     }
 }
