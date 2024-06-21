@@ -19,4 +19,5 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/wines', [WineController::class, 'index']);
+
+Route::resource('wines', WineController::class);
