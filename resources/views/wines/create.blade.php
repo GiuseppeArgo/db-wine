@@ -28,23 +28,23 @@
                         <option value="Porto">Porto</option>
                     </select>
                     <div class="mb-3">
-                        <label for="average" class="form-label">Voto</label>
+                        <label for="average" class="form-label">Valutazioni</label>
                         <input type="text" class="form-control" id="text" aria-describedby="average" name="average">
                     </div>
                     <div class="mb-3">
-                        <label for="reviews" class="form-label">Recensioni</label>
+                        <label for="reviews" class="form-label">Numero recensioni</label>
                         <input type="text" class="form-control" id="text" aria-describedby="reviews" name="reviews">
                     </div>
                     <div class="mb-3">
-                        <label for="location" class="form-label">Città</label>
+                        <label for="location" class="form-label">Provenienza</label>
                         <input type="text" class="form-control" id="text" aria-describedby="location"
                             name="location">
                     </div>
                     <div class="mb-3">
-                        <label for="image" class="form-label">Immagine</label>
+                        <label for="image" class="form-label">URL Immagine</label>
                         <input type="text" class="form-control" id="text" aria-describedby="image" name="image">
                     </div>
-                    <button type="submit" class="btn btn-success">Salva</button>
+                    <button type="submit" class="btn btn-success">Salva nuovo prodotto</button>
                 </form>
 
             </div>

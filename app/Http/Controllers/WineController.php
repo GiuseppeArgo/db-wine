@@ -14,7 +14,7 @@ class WineController extends Controller
     public function index()
     {
         $wines = Wine::all();
-        return view('wines', compact('wines'));
+        return view('wines.index', compact('wines'));
     }
 
     /**
@@ -22,7 +22,7 @@ class WineController extends Controller
      */
     public function create()
     {
-        return view('create');
+        return view('wines.create');
     }
 
     /**
@@ -51,7 +51,7 @@ class WineController extends Controller
      */
     public function edit(Wine $wine)
     {
-        return view('edit', compact('wine'));
+        return view('wines.edit', compact('wine'));
     }
 
     /**

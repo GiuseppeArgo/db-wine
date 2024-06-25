@@ -2,7 +2,10 @@
 
 @section('content')
     <div class="container ">
-        <h1 class="text-center py-5">Lista Vini</h1>
+        <div class="d-flex justify-content-between align-items-center">
+            <h1 class="text-center py-5">Lista Vini</h1>
+            <a class="btn btn-success" href="{{ route('wines.create') }}">Crea nuovo prodotto</a>
+        </div>
         <div class="row d-flex flex-wrap justify-content-center g-3">
             @if (Session::has("messageDelete"))
                 <ul>
@@ -27,6 +30,8 @@
                             <span class="h5">Recensione: </span><span>{{ $curItem['reviews'] }}</span>
                             <br>
                             <span class="h5">Città: </span><span>{{ $curItem['location'] }}</span><br>
+                            <a href="{{ route('wines.show', ['wine' => $curItem->id]) }}"
+                                class="btn btn-secondary mt-2">Dettagli</a>
                             <form action="{{ route("wines.destroy", ["wine" => $curItem->id]) }}" method="POST">
                                 @method("DELETE")
                                 @csrf

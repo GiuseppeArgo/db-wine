@@ -7,9 +7,9 @@
         </div>
         <div class="mt-5">
             <h5 class="mb-5">{{ $wine->wine }}</h5>
-            <p class="mb-5">Azienda Vinicola: {{ $wine->winery }}</p>
-            <p class="mb-5">Locazione: {{ $wine->location }}</p>
-            <p class="mb-5">Voto medio: {{ $wine->average }}</p>
+            <p class="mb-5">Azienda: {{ $wine->winery }}</p>
+            <p class="mb-5">Città: {{ $wine->location }}</p>
+            <p class="mb-5">Voto: {{ $wine->average }}</p>
             <p class="mb-5">Recensioni: {{ $wine->reviews }}</p>
             <a href="{{ route('wines.index') }}" class="btn btn-secondary">Torna alla lista</a>
         </div>
