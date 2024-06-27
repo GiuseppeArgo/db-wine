@@ -11,6 +11,20 @@
             <p class="mb-5">Città: {{ $wine->location }}</p>
             <p class="mb-5">Voto: {{ $wine->average }}</p>
             <p class="mb-5">Recensioni: {{ $wine->reviews }}</p>
+
+            <p>Spezie e Aromi:</p>
+            <ul>
+                
+                @forelse ($wine->spices as $spice)
+                    <li>
+                        {{ $spice->name }}
+                    </li>
+                @empty
+                    <li>
+                        Non ci sono aromi
+                    </li>
+                @endforelse
+            </ul>
             <a href="{{ route('wines.index') }}" class="btn btn-secondary">Torna alla lista</a>
         </div>
     </div>

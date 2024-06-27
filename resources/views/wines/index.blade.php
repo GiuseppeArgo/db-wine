@@ -30,6 +30,9 @@
                             <span class="h5">Recensione: </span><span>{{ $curItem['reviews'] }}</span>
                             <br>
                             <span class="h5">Città: </span><span>{{ $curItem['location'] }}</span><br>
+                            
+                            <span class="h5">Tipo: </span><span>{{ $curItem['type'] }}</span><br>
+                            
                             <a href="{{ route('wines.show', ['wine' => $curItem->id]) }}"
                                 class="btn btn-secondary mt-2">Dettagli</a>
                             <a href="{{ route('wines.edit', ['wine' => $curItem->id]) }}"

@@ -62,6 +62,9 @@ class WineController extends Controller
     public function update(Request $request, Wine $wine)
     {
         $data = $request->all();
+        if($request->has('spices')){
+            $wine->spices()->sync($request->spices);
+        }
         $wine->update($data);
         return redirect()->route('wines.show', compact('wine'));
     }
