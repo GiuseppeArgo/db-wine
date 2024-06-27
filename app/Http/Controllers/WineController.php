@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Spice;
 use App\Models\Wine;
 use Illuminate\Http\Request;
 
@@ -51,7 +52,8 @@ class WineController extends Controller
      */
     public function edit(Wine $wine)
     {
-        return view('wines.edit', compact('wine'));
+        $spices = Spice::all();
+        return view('wines.edit', compact('wine','spices'));
     }
 
     /**
@@ -60,6 +62,9 @@ class WineController extends Controller
     public function update(Request $request, Wine $wine)
     {
         $data = $request->all();
+        if($request->has('spices')){
+            $wine->spices()->sync($request->spices);
+        }
         $wine->update($data);
         return redirect()->route('wines.show', compact('wine'));
     }
