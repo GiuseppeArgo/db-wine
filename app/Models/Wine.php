@@ -16,7 +16,7 @@ class Wine extends Model
         'average',
         'reviews',
         'location',
-        'image'
+        'image',
     ];
 
     public function spices()

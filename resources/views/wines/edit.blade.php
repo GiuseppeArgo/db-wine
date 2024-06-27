@@ -43,6 +43,18 @@
 
             </div>
 
+            <div class="mb-3">
+                <div class="" role="group">
+                    <select class="form-select" multiple aria-label="Multiple select example" name="spices[]">
+                        @foreach ($spices as $spice)
+                            <option @selected(in_array($spice->id, old('spices', []))) value="{{ $spice->id }}" >
+                                {{ $spice->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Url immagine</span>
                 <input value="{{ $wine->image }}"id="image " name="image " type="text" class="form-control"
