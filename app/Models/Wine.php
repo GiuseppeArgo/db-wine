@@ -18,4 +18,9 @@ class Wine extends Model
         'location',
         'image'
     ];
+
+    public function spices()
+    {
+        return $this->belongsToMany(Spice::class);
+    }
 }
