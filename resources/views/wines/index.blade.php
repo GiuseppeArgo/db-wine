@@ -7,9 +7,9 @@
             <a class="btn btn-success" href="{{ route('wines.create') }}">Crea nuovo prodotto</a>
         </div>
         <div class="row d-flex flex-wrap justify-content-center g-3">
-            @if (Session::has("messageDelete"))
+            @if (Session::has('messageDelete'))
                 <ul>
-                    <li class="delete-msg alert alert-success"> {{Session::get("messageDelete")}} </li>
+                    <li class="delete-msg alert alert-success"> {{ Session::get('messageDelete') }} </li>
                 </ul>
             @endif
 
@@ -32,8 +32,10 @@
                             <span class="h5">Città: </span><span>{{ $curItem['location'] }}</span><br>
                             <a href="{{ route('wines.show', ['wine' => $curItem->id]) }}"
                                 class="btn btn-secondary mt-2">Dettagli</a>
-                            <form action="{{ route("wines.destroy", ["wine" => $curItem->id]) }}" method="POST">
-                                @method("DELETE")
+                            <a href="{{ route('wines.edit', ['wine' => $curItem->id]) }}"
+                                class="btn btn-warning mt-2">Modifica</a>
+                            <form action="{{ route('wines.destroy', ['wine' => $curItem->id]) }}" method="POST">
+                                @method('DELETE')
                                 @csrf
                                 <button type="submit" class="btn btn-danger delete-btn">&cross;</button>
                             </form>
