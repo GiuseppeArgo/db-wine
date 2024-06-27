@@ -8,5 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Spice extends Model
 {
     use HasFactory;
-    
+
+    public function wines()
+    {
+        return $this->belongsToMany(Wine::class);
+    }
 }
