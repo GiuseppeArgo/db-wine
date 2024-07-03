@@ -13,14 +13,19 @@
                 </ul>
             @endif
 
-            @for ($i = 0; $i < 30; $i++)
+            @for ($i = 0; $i < 3; $i++)
                 <div class="col-3">
                     @php
                         $curItem = $wines[$i];
                     @endphp
 
                     <div class="card h-100 " style="width: 18rem;">
+                        @if (explode('/', $curItem->image)[0] == 'images')
+                            <img src="{{ asset('storage/'. $curItem->image) }}" class="card-img-top"
+                                alt="{{ $curItem['wine'] }}">
+                        @endif
                         <img src="{{ $curItem['image'] }}" class="card-img-top" alt="{{ $curItem['wine'] }}">
+
                         <div class="card-body">
                             <h5 class="card-title">{{ $curItem['wine'] }}</h5>
                             <span class="h5">Azienda: </span><span>{{ $curItem['winery'] }}</span>
@@ -30,9 +35,9 @@
                             <span class="h5">Recensione: </span><span>{{ $curItem['reviews'] }}</span>
                             <br>
                             <span class="h5">Città: </span><span>{{ $curItem['location'] }}</span><br>
-                            
+
                             <span class="h5">Tipo: </span><span>{{ $curItem['type'] }}</span><br>
-                            
+
                             <a href="{{ route('wines.show', ['wine' => $curItem->id]) }}"
                                 class="btn btn-secondary mt-2">Dettagli</a>
                             <a href="{{ route('wines.edit', ['wine' => $curItem->id]) }}"
