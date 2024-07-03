@@ -13,9 +13,11 @@ class WineController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $wines = Wine::all();
+
+        $perPage = $request->per_page ? $request->per_page : 10;
+        $wines = Wine::paginate($perPage)->appends(['per_page' => $perPage]);
         return view('wines.index', compact('wines'));
     }
 
