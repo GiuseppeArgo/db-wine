@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Spice;
 use App\Models\Wine;
 use Illuminate\Http\Request;
+use App\Http\Requests\WineRequest;
 
 class WineController extends Controller
 
@@ -29,7 +30,7 @@ class WineController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(WineRequest $request)
     {
         $newWine = new Wine();
         $data = $request->all();

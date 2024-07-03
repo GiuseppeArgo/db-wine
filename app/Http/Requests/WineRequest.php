@@ -22,11 +22,11 @@ class WineRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'winery'=> 'required|string|min:3|max255 ',
-        'wines'=> 'required|string|min:3|max255 ',
+            'winery'=> 'required|string|min:3|max:255 ',
+        'wines'=> 'required|string|min:3|max:255 ',
         'average'=> 'required|decimal:1',
         'reviews' => 'required|integer',
-        'location'=> 'required|string|min:3|max255 ',
+        'location'=> 'required|string|min:3|max:255 ',
         'image'=> 'nullable',
         ];
     }
