@@ -16,10 +16,11 @@ class WineController extends Controller
      */
     public function index(Request $request)
     {
-
+        $typeArray = ['white', 'red','sparkling','rose','dessert','port'];
+    
         $perPage = $request->per_page ? $request->per_page : 10;
-        $wines = Wine::paginate($perPage)->appends(['per_page' => $perPage]);
-        return view('wines.index', compact('wines'));
+        $wines = Wine::where('type', $request->type)->paginate($perPage)->appends(['per_page' => $perPage]);
+        return view('wines.index', compact('wines','typeArray'));
     }
 
     /**

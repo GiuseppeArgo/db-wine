@@ -4,27 +4,52 @@
     <div class="container ">
         <h1 class="text-center fw-bold py-5" style="font-size: 4rem;">🥂 Lista Vini 🍷</h1>
         <div class="d-flex justify-content-between align-items-center py-2">
-            <a class="btn btn-primary align-self-start" href="{{ route('wines.create') }}">Crea nuovo prodotto</a>
+            <div class="pb-4 container-fluid">
+                <div class="row d-flex justify-content-end">
+                    <div class="col-4">
+                        <a class="btn btn-primary align-self-start" href="{{ route('wines.create') }}">Crea nuovo prodotto</a>
+                    </div>
 
-            <div class="pb-4 d-flex justify-content-end">
-                <form class="d-flex" action="{{ route('wines.index') }}" method="GET">
-                    @csrf
-                    <label class="me-2" for="per_page"><small class=" text-secondary">Elementi per
-                            pagina</small></label>
-                    <div class="col-xs-2 me-2">
-                        <select class="form-select form-select-sm" aria-label="Seleziona il numero di elementi per pagina"
-                            name="per_page" id="per_page">
-                            <option selected value="5" @selected($wines->perPage() == 5)>5</option>
-                            <option value="10" @selected($wines->perPage() == 10)>10</option>
-                            <option value="15" @selected($wines->perPage() == 15)>15</option>
-                            <option value="20" @selected($wines->perPage() == 20)>20</option>
-                            <option value="50" @selected($wines->perPage() == 50)>50</option>
-                            <option value="100" @selected($wines->perPage() == 100)>100</option>
-                        </select>
+                    <div class="col-4">
+
+                        <form class="d-flex" action="{{ route('wines.index') }}" method="GET">
+                            @csrf
+                            <label class="me-2" for="per_page"><small class=" text-secondary">Elementi per
+                                    pagina</small></label>
+                            <div class="col-xs-2 me-2">
+                                <select class="form-select form-select-sm"
+                                    aria-label="Seleziona il numero di elementi per pagina" name="per_page" id="per_page">
+                                    <option selected value="5" @selected($wines->perPage() == 5)>5</option>
+                                    <option value="10" @selected($wines->perPage() == 10)>10</option>
+                                    <option value="15" @selected($wines->perPage() == 15)>15</option>
+                                    <option value="20" @selected($wines->perPage() == 20)>20</option>
+                                    <option value="50" @selected($wines->perPage() == 50)>50</option>
+                                    <option value="100" @selected($wines->perPage() == 100)>100</option>
+                                </select>
+
+                            </div>
+                            <button type="submit" class="btn btn-sm btn-primary">Applica</button>
+                        </form>
 
                     </div>
-                    <button type="submit" class="btn btn-sm btn-primary">Applica</button>
-                </form>
+                    <div class="col-4">
+
+                        <form action="{{ route('wines.index') }}" method="GET" class="ms-2">
+                            @csrf
+                            
+                            <div class="col-xs-2 me-2 w-75 d-flex gap-3">
+                                <label class="me-2" for="wine-type"><small class=" text-secondary">Filtro</small></label>
+                                <select name="type" id="wine-type" class="form-select form-select-sm"
+                                    aria-label="Seleziona tipo di vino">
+                                    @foreach ($typeArray as $type)
+                                        <option value="{{ $type }}">{{ $type }}</option>
+                                    @endforeach
+                                </select>
+                                <button type="submit" class="btn btn-sm btn-primary">Applica</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
 
