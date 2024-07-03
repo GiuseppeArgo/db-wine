@@ -35,11 +35,13 @@
                 </ul>
             @endif
 
+
             @foreach ($wines as $curItem)
                 <div class="col">
                     <div class="card h-100">
                         <img src="{{ $curItem['image'] }}" class="card-img-top" alt="{{ $curItem['wine'] }}"
                             style="width: 200px; object-fit: cover; margin: auto;">
+
 
 
 
@@ -52,8 +54,9 @@
                             <span class="h5">Recensione: </span><span>{{ $curItem['reviews'] }}</span>
                             <br>
                             <span class="h5">Città: </span><span>{{ $curItem['location'] }}</span><br>
+
                             <span class="h5">Tipo: </span><span>{{ $curItem['type'] }}</span><br>
-                            <a href="{{ route('wines.show', ['wine' => $curItem->id]) }}"
+               <a href="{{ route('wines.show', ['wine' => $curItem->id]) }}"
                                 class="btn btn-secondary mt-2">Dettagli</a>
                             <a href="{{ route('wines.edit', ['wine' => $curItem->id]) }}"
                                 class="btn btn-warning mt-2">Modifica</a>

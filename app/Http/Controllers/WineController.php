@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Spice;
 use App\Models\Wine;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class WineController extends Controller
 
@@ -35,6 +36,11 @@ class WineController extends Controller
     {
         $newWine = new Wine();
         $data = $request->all();
+        if ($request->hasFile('image')) {
+            $image_path = Storage::put('image', $request->image);
+            $data['image'] = $image_path;
+            // dd($data);
+        }
         $newWine->fill($data);
         // dd($newWine);
         $newWine->save();
@@ -66,6 +72,11 @@ class WineController extends Controller
         $data = $request->all();
         if ($request->has('spices')) {
             $wine->spices()->sync($request->spices);
+        }
+        if ($request->hasFile('image')) {
+            $image_path = Storage::put('image', $request->image);
+            $data['image'] = $image_path;
+            // dd($data);
         }
         $wine->update($data);
         return redirect()->route('wines.show', compact('wine'));
