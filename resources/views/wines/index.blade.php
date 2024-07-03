@@ -29,24 +29,24 @@
 
                             </div>
                             <button type="submit" class="btn btn-sm btn-primary">Applica</button>
-                        </form>
+                            {{-- </form> --}}
 
                     </div>
                     <div class="col-4">
 
-                        <form action="{{ route('wines.index') }}" method="GET" class="ms-2">
-                            @csrf
-                            
-                            <div class="col-xs-2 me-2 w-75 d-flex gap-3">
-                                <label class="me-2" for="wine-type"><small class=" text-secondary">Filtro</small></label>
-                                <select name="type" id="wine-type" class="form-select form-select-sm"
-                                    aria-label="Seleziona tipo di vino">
-                                    @foreach ($typeArray as $type)
-                                        <option value="{{ $type }}">{{ $type }}</option>
-                                    @endforeach
-                                </select>
-                                <button type="submit" class="btn btn-sm btn-primary">Applica</button>
-                            </div>
+                        {{-- <form action="{{ route('wines.index') }}" method="GET" class="ms-2"> --}}
+                        {{-- @csrf --}}
+
+                        <div class="col-xs-2 me-2 w-75 d-flex gap-3">
+                            <label class="me-2" for="wine-type"><small class=" text-secondary">Filtro</small></label>
+                            <select name="type" id="wine-type" class="form-select form-select-sm"
+                                aria-label="Seleziona tipo di vino">
+                                @foreach ($typeArray as $type)
+                                    <option value="{{ $type }}">{{ $type }}</option>
+                                @endforeach
+                            </select>
+                            <button type="submit" class="btn btn-sm btn-primary">Applica</button>
+                        </div>
                         </form>
                     </div>
                 </div>
