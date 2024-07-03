@@ -71,6 +71,11 @@ class WineController extends Controller
         if ($request->has('spices')) {
             $wine->spices()->sync($request->spices);
         }
+        if ($request->hasFile('image')) {
+            $image_path = Storage::put('image', $request->image);
+            $data['image'] = $image_path;
+            // dd($data);
+        }
         $wine->update($data);
         return redirect()->route('wines.show', compact('wine'));
     }

@@ -43,7 +43,7 @@
                     </div>
                     
                     <div class="mb-3">
-                        <label for="reviews" class="form-label">Media Voti</label>
+                        <label for="my-range" class="form-label">Media Voti</label>
                         <input id="my-range" type="range" class="form-range" id="text" aria-describedby="reviews" name="average"  min="0" max="5"  step="0.5">
                         <span id="range-value">0.0</span>
                     </div>
