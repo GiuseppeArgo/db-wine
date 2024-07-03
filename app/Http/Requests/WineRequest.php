@@ -23,7 +23,7 @@ class WineRequest extends FormRequest
     {
         return [
             'winery'=> 'required|string|min:3|max:255 ',
-        'wines'=> 'required|string|min:3|max:255 ',
+        'wine'=> 'required|string|min:3|max:255 ',
         'average'=> 'required|decimal:1',
         'reviews' => 'required|integer',
         'location'=> 'required|string|min:3|max:255 ',
