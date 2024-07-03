@@ -3,7 +3,13 @@
 @section('content')
     <div class="container pt-5 d-flex justify-content-around align-items-center">
         <div class="mt-5">
-            <img src="{{ $wine->image }}" alt="{{ $wine->wine }}">
+            
+            @if (explode('/', $wine->image)[0] == 'images')
+                <img src="{{ asset('storage/' . $wine->image) }}" class="card-img-top" alt="{{ $wine->image }}">
+                
+            @else
+                <img src="{{ $wine['image'] }}" class="card-img-top" alt="{{ $wine['wine'] }}">
+            @endif
         </div>
         <div class="mt-5">
             <h5 class="mb-5">{{ $wine->wine }}</h5>
@@ -14,7 +20,7 @@
 
             <p>Spezie e Aromi:</p>
             <ul>
-                
+
                 @forelse ($wine->spices as $spice)
                     <li>
                         {{ $spice->name }}
