@@ -6,7 +6,7 @@
 
         <div class="row">
             <div class="col-6 mx-auto">
-                <form action="{{ route('wines.store') }}" method="POST">
+                <form action="{{ route('wines.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="mb-3">
@@ -23,6 +23,12 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                     </div>
+
+                    <div class="mb-3">
+                        <label for="wine" class="form-label">Inserisci Immagine</label>
+                        <input type="file" class="form-control" id="text" aria-describedby="wine" name="image">
+                    </div>
+
                     <label for="type" class="form-label">Tipo</label>
                     <select class="form-select mb-3" aria-label="select" id="type" name="type">
                         <option selected>Seleziona il tipo di vino</option>
@@ -41,11 +47,18 @@
                     @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="reviews" class="form-label ">Numero recensioni</label>
-                        <input type="text" class="form-control @error('reviews') is-invalid @enderror" id="text" aria-describedby="reviews" name="reviews" value="{{ old('reviews') }}">
-                        @error('reviews')
+
+                        <label for="reviews" class="form-label">Numero recensioni</label>
+                        <input type="number" class="form-control  @error('reviews') is-invalid @enderror" id="text" aria-describedby="reviews" name="reviews" value="{{ old('reviews') }}">
+                    @error('reviews')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="my-range" class="form-label">Media Voti</label>
+                        <input id="my-range" type="range" class="form-range" id="text" aria-describedby="reviews" name="average"  min="0" max="5"  step="0.5">
+                        <span id="range-value">0.0</span>
                     </div>
                     <div class="mb-3">
                         <label for="location" class="form-label ">Provenienza</label>

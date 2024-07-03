@@ -3,7 +3,7 @@
 @section('content')
     <h1>Modifica vino</h1>
     <div class="container">
-        <form action="{{ route('wines.update', $wine->id) }}" method="POST">
+        <form action="{{ route('wines.update', $wine->id) }}" method="POST" enctype="multipart/form-data">
 
             @csrf
             @method('PUT')
@@ -22,6 +22,11 @@
 
             </div>
 
+            <div class="mb-3">
+                <label for="wine" class="form-label">Inserisci Immagine</label>
+                <input type="file" class="form-control" id="text" aria-describedby="wine" name="image">
+            </div>
+
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Valutazione</span>
                 <input value="{{ $wine->average }}"id="average " name="average " type="number" class="form-control"
@@ -29,12 +34,17 @@
 
             </div>
 
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">Numero recensioni</span>
-                <input value="{{ $wine->reviews }}"id="reviews " name="reviews " type="number" class="form-control"
-                    aria-describedby="basic-addon1">
-
+            <div class="mb-3">
+                <label for="reviews" class="form-label">Numero recensioni</label>
+                <input type="number" class="form-control" id="text" aria-describedby="reviews" name="reviews">
             </div>
+            
+            <div class="mb-3">
+                <label for="my-range" class="form-label">Media Voti</label>
+                <input id="my-range" type="range" class="form-range" id="text" aria-describedby="reviews" name="average"  min="0" max="5"  step="0.5">
+                <span id="range-value">0.0</span>
+            </div>
+
 
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Provenienza</span>
