@@ -11,23 +11,20 @@ use Illuminate\Support\Facades\Storage;
 class WineController extends Controller
 
 {
+    private $type;
     /**
      * Display a listing of the resource.
      */
     public function index(Request $request)
     {
-        
-        if(empty($request->type)){
-            $type = 'red';
-        }else{
-            $type = $request->type;
-        }
+        $typeArray = ['red', 'white', 'sparkling', 'rose', 'dessert', 'port'];
 
-        $typeArray = ['red','white','sparkling','rose','dessert','port'];
-
+        $currType = $request->type ? $request->type : 'red';
         $perPage = $request->per_page ? $request->per_page : 10;
-        $wines = Wine::where('type', $type)->paginate($perPage)->appends(['per_page' => $perPage]);
-        return view('wines.index', compact('wines','typeArray'));
+        $wines = Wine::where('type', $request->type)->paginate($perPage)->appends(['per_page' => $perPage]);
+
+        $wines->appends(['type' => $currType]);
+        return view('wines.index', compact('wines', 'typeArray', 'currType'));
     }
 
     /**
